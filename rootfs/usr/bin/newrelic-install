@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Shortcut to new relic install location
+cd /opt/newrelic && ./newrelic-install "${@}"

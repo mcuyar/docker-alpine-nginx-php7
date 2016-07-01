@@ -1,0 +1,23 @@
+# Hide system files
+.DS_Store
+
+# Hide PHPStorm project files
+.idea
+
+# Hide sublime project files
+*.sublime-project
+*.sublime-workspace
+
+# Hide vagrant folder
+.vagrant
+
+# Ignore Codeship/Jet AES encryption keys
+*.aes
+
+# Ingore environment files
+*.env
+.env.*
+!*.env.encrypted
+
+# ignore tmp folder
+tmp

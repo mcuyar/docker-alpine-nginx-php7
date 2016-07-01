@@ -1,0 +1,6 @@
+#!/bin/bash
+
+##/
+ # set the php7 executable to php for more common usage
+ #/
+ln -s /usr/bin/php7 /usr/bin/php

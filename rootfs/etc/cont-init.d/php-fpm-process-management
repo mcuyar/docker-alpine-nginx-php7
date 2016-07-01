@@ -1,0 +1,16 @@
+#!/bin/bash
+
+total_memory=$(grep MemTotal /proc/meminfo | awk '{printf "%.0f\n", ($2/1024)-500}');
+single_php_process_memory=0 #$(ps -ylC php-fpm7 --sort:rss | awk '!/RSS/ { s+=$8 } END { printf "%d\n", s/1024 }')
+
+if [ ${single_php_process_memory} -eq 0 ]; then single_php_process_memory=75; fi
+
+to_round=$(expr ${total_memory} / ${single_php_process_memory});
+max_children=$(awk -v round=${to_round} 'BEGIN { rounded = sprintf( "%.0f", round); print rounded }')
+
+dir=/etc/php7/php-fpm.d/www.conf
+
+sed -i "s/pm.max_children = 15/pm.max_children = $max_children/" ${dir}
+sed -i "s/pm.min_spare_servers = 5/pm.min_spare_servers = $max_children/" ${dir}
+sed -i "s/pm.max_spare_servers = 15/pm.max_spare_servers = $max_children/" ${dir}
+sed -i "s/pm.start_servers = 10/pm.start_servers = $max_children/" ${dir}
