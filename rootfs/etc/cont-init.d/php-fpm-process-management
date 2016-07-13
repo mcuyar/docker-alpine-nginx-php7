@@ -1,16 +1,27 @@
-#!/bin/bash
-
-total_memory=$(grep MemTotal /proc/meminfo | awk '{printf "%.0f\n", ($2/1024)-500}');
-single_php_process_memory=0 #$(ps -ylC php-fpm7 --sort:rss | awk '!/RSS/ { s+=$8 } END { printf "%d\n", s/1024 }')
-
-if [ ${single_php_process_memory} -eq 0 ]; then single_php_process_memory=75; fi
-
-to_round=$(expr ${total_memory} / ${single_php_process_memory});
-max_children=$(awk -v round=${to_round} 'BEGIN { rounded = sprintf( "%.0f", round); print rounded }')
+#!/usr/bin/with-contenv bash
 
 dir=/etc/php7/php-fpm.d/www.conf
 
-sed -i "s/pm.max_children = 15/pm.max_children = $max_children/" ${dir}
-sed -i "s/pm.min_spare_servers = 5/pm.min_spare_servers = $max_children/" ${dir}
-sed -i "s/pm.max_spare_servers = 15/pm.max_spare_servers = $max_children/" ${dir}
-sed -i "s/pm.start_servers = 10/pm.start_servers = $max_children/" ${dir}
+if [ ! -z ${PM} ]; then
+    sed -i "s/.*pm =.*/pm = \"${PM}\"/g" ${dir}
+fi
+
+if [ ! -z ${PM_MAX_CHILDREN} ]; then
+    sed -i "s/.*pm.max_children =.*/pm.max_children = \"${PM_MAX_CHILDREN}\"/g" ${dir}
+fi
+
+if [ ! -z ${PM_START_SERVERS} ]; then
+    sed -i "s/.*pm.start_servers =.*/pm.start_servers = \"${PM_START_SERVERS}\"/g" ${dir}
+fi
+
+if [ ! -z ${PM_MIN_SPARE_SERVERS} ]; then
+    sed -i "s/.*pm.min_spare_servers =.*/pm.min_spare_servers = \"${PM_MIN_SPARE_SERVERS}\"/g" ${dir}
+fi
+
+if [ ! -z ${PM_MAX_SPARE_SERVERS} ]; then
+    sed -i "s/.*pm.max_spare_servers =.*/pm.max_spare_servers = \"${PM_MAX_SPARE_SERVERS}\"/g" ${dir}
+fi
+
+if [ ! -z ${PM_MAX_REQUESTS} ]; then
+    sed -i "s/.*pm.max_requests =.*/pm.max_requests = \"${PM_MAX_REQUESTS}\"/g" ${dir}
+fi

@@ -3,6 +3,8 @@ nginx-php:
   volumes:
     - ./volumes/etc/nginx/conf.d:/etc/nginx/conf.d
     - ./volumes/var/www/:/var/www
+  env_file:
+    - .env
   ports:
     - "80:80"
     - "443:443"
