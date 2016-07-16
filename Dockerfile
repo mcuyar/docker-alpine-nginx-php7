@@ -24,7 +24,8 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-openssl \
     php7-ctype \
     php7-mbstring \
-    php7-zip
+    php7-zip \
+    php7-dom
     #php7-readline
 
 ##/
