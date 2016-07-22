@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source /commands/init.sh
+
+# Copy nginx configs
+cp -a /nginx/public/conf.d/* /etc/nginx/conf.d
+
+/init

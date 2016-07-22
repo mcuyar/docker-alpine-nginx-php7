@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source /commands/init.sh
+
+# Run application migrations
+cp /scripts/laravel-queue.sh ${dir}/01_queue.sh
+
+# Disable Nginx Daemon
+rm -rf /etc/service.d/nginx
+rm -rf /etc/services.d/php7
+
+/init
