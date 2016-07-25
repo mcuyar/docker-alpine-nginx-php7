@@ -13,6 +13,7 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-fpm \
     php7-xml \
     php7-pgsql \
+    php7-pdo_pgsql \
     php7-mysqli \
     php7-pdo_mysql \
     php7-mcrypt \
@@ -25,8 +26,11 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-ctype \
     php7-mbstring \
     php7-zip \
-    php7-xdebug
-    #php7-readline
+    php7-dom \
+    php7-xdebug \
+    php7-pcntl \
+    php7-posix
+#    php7-readline
 
 ##/
  # Install composer
