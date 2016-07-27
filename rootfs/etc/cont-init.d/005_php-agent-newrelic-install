@@ -2,18 +2,18 @@
 
 if [ -z "${NEW_RELIC_INSTALL}" ] || [ ! "${NEW_RELIC_INSTALL}" = "true" ]; then
     echo "New Relic Install Skipped"
-    # Remove new relic default files
-    rm -rf /etc/services.d/newrelic
-    rm -rf /etc/php7/conf.d/newrelic.ini
     exit;
 fi
 
 export NR_INSTALL_SILENT=true
 export NR_INSTALL_KEY="${NEW_RELIC_INSTALL_KEY}"
 
-# Update New Relic INI
 ini=/etc/php7/conf.d/newrelic.ini
 
+# Set New Relic INI
+cp /opt/newrelic/newrelic.ini ${ini}
+
+# Update New Relic INI
 sed -i "s/.*newrelic.license =.*/newrelic.license = \"${NR_INSTALL_KEY}\"/g" ${ini}
 
 if [ ! -z "${APP_NAME}" ]; then
