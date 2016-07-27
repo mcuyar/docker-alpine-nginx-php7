@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+apk add redis
+
 function test_redis {
   redis-cli -h "${CACHE_PORT_6379_TCP_ADDR}" PING
 }

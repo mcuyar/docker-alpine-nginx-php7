@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+apk add mysql-client
+
 function test_mysql {
   mysqladmin -h "${MYSQL_PORT_3306_TCP_ADDR}" -u"${MYSQL_ENV_MYSQL_USER}" -p"${MYSQL_ENV_MYSQL_PASSWORD}" ping
 }

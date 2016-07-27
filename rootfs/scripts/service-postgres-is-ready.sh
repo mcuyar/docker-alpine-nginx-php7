@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+apk add postgres
+
 function test_postgresql {
   pg_isready -h "${POSTGRES_PORT_5432_TCP_ADDR}" -U "${POSTGRES_ENV_POSTGRES_USER}"
 }
