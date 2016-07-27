@@ -33,11 +33,16 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
 #    php7-readline
 
 ##/
+ # Link PHP
+ #/
+RUN ln -s /usr/bin/php7 /usr/bin/php
+
+##/
  # Install composer
  #/
 ENV COMPOSER_HOME=/composer
 RUN mkdir /composer \
-    && curl -sS https://getcomposer.org/installer | php7 \
+    && curl -sS https://getcomposer.org/installer | php \
     && mkdir -p /opt/composer \
     && mv composer.phar /opt/composer/composer.phar
 

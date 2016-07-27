@@ -2,9 +2,11 @@ nginx-php:
   build: .
   volumes:
     - ./volumes/etc/nginx/conf.d:/etc/nginx/conf.d
+    - ./volumes/commands/init.sh:/commands/init.sh
     - ./volumes/var/www/:/var/www
   env_file:
     - .env
+  entrypoint: /commands/init.sh
   ports:
     - "80:80"
     - "443:443"
