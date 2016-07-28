@@ -9,6 +9,6 @@ touch ${file} && chmod +x ${file}
 
 cat << EOF > ${file}
 #!/usr/bin/with-contenv bash
-export /opt/envars.sh
+source /opt/envars.sh
 php /var/www/artisan queue:listen --sleep=5
 EOF
