@@ -1,4 +1,6 @@
 #!/bin/bash
 
 mkdir -p /var/log/cron
-crontab "/var/www/cron.conf"
+file=/var/www/cron.conf
+echo '' >> ${file}
+crontab ${file}
