@@ -8,6 +8,9 @@ cp /scripts/laravel-migrate.sh ${dir}/01_migrate.sh
 # Set the cron to run
 cp /scripts/cron.sh ${dir}/02_cron.sh
 
+# Start the cron service
+crond
+
 # Disable Nginx Daemon
 rm -rf /etc/services.d/nginx
 rm -rf /etc/services.d/php7
