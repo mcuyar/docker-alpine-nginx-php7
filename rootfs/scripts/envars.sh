@@ -48,7 +48,7 @@ fi
 echo "" > ${ini}
 
 #----------------------------------------------------------
-# Generate a Laravel 5 Environment file
+# Generate a Laravel 5+ Environment file
 #----------------------------------------------------------
 
 lfiveenv="/var/www/.env"
@@ -58,23 +58,6 @@ if [ ! -f ${lfiveenv} ]; then
 fi
 
 echo "" > ${lfiveenv}
-
-#----------------------------------------------------------
-# Generate a laravel 4.2 Environment file
-#----------------------------------------------------------
-
-envname=""
-if [ ! "$ENVIRONMENT" == "production" ]; then
-    envname=".$ENVIRONMENT"
-fi
-
-lfourenv="/var/www/.env${envname}.php"
-
-if [ ! -f ${lfourenv} ]; then
-    touch ${lfourenv}
-fi
-
-echo "<?php return [" > ${lfourenv}
 
 #----------------------------------------------------------
 # Add the container environment variables to all files
@@ -91,7 +74,6 @@ for f in *; do
     echo "export ${name}='${value}'" >> ${source}
     echo "env[${name}] = '${value}'" >> ${conf}
     echo "env[${name}] = '${value}'" >> ${ini}
-    echo "'${name}' => '${value}'," >> ${lfourenv}
     echo "${name}='${value}'" >> ${lfiveenv}
   fi
 done
