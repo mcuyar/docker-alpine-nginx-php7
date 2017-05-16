@@ -1,0 +1,69 @@
+package:
+  curl:
+    installed: true
+  git:
+    installed: true
+  php7:
+    installed: true
+  php7-ctype:
+    installed: true
+  php7-curl:
+    installed: true
+  php7-dom:
+    installed: true
+  php7-fpm:
+    installed: true
+  php7-gd:
+    installed: true
+  php7-json:
+    installed: true
+  php7-mbstring:
+    installed: true
+  php7-mcrypt:
+    installed: true
+  php7-mysqli:
+    installed: true
+  php7-opcache:
+    installed: true
+  php7-openssl:
+    installed: true
+  php7-pcntl:
+    installed: true
+  php7-pdo_mysql:
+    installed: true
+  php7-pdo_pgsql:
+    installed: true
+  php7-pgsql:
+    installed: true
+  php7-phar:
+    installed: true
+  php7-posix:
+    installed: true
+  php7-session:
+    installed: true
+  php7-xml:
+    installed: true
+  php7-zip:
+    installed: true
+  php7-zlib:
+    installed: true
+  php7-tokenizer:
+    installed: true
+port:
+  tcp:80:
+    listening: true
+    ip: []
+  tcp:443:
+    listening: false
+    ip: []
+process:
+  nginx:
+    running: true
+http:
+  http://localhost:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body:
+    - PHP Version 7

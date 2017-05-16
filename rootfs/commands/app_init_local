@@ -1,9 +1,0 @@
-#!/bin/bash
-
-source /commands/init.sh
-
-# Copy nginx configs
-cp -a /nginx/local/conf.d/* /etc/nginx/conf.d
-cp -a /nginx/local/ssl/* /etc/ssl
-
-/init

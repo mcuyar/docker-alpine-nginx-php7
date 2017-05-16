@@ -21,3 +21,6 @@
 
 # ignore tmp folder
 tmp
+
+# Simple script for building locally
+build.sh

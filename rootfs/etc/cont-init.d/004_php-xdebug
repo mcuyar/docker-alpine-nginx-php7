@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+# Uncomment the zend extension for xdebug
+# if the xdebug.ini exists
+
+conf=/etc/php7/conf.d/xdebug.ini
+
+if [ -f ${conf} ]; then
+    sed -i '/zend_extension/s/^;//g' file ${conf}
+fi

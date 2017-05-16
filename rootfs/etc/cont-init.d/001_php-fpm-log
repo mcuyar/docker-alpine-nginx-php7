@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mkdir -p /var/log/php-fpm
+mkdir -p /var/log/php7
 touch /var/log/php7/fpm-error.log

@@ -9,6 +9,11 @@ MAINTAINER Matthew Cuyar <matt@enctypeapparel.com>
  # Install PHP
  #/
 RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
+    # Global Packages
+    curl \
+    git \
+    bash \
+    # PHP Packages
     php7 \
     php7-fpm \
     php7-xml \
@@ -30,8 +35,8 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-pcntl \
     php7-posix \
     php7-session \
-    php7-zlib
-#   php7-readline
+    php7-zlib \
+    php7-tokenizer
 
 ##/
  # Install composer

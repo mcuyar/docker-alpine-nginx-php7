@@ -1,0 +1,13 @@
+package:
+  php7-xdebug:
+    installed: true
+command:
+  php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7
+    - with Xdebug
+  php -i:
+      exit-status: 0
+      stdout:
+      - xdebug.
