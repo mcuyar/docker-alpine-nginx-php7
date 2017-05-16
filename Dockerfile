@@ -37,6 +37,8 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
  # Install composer
  #/
 ENV COMPOSER_HOME=/composer
+ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
+
 RUN mkdir /composer \
     && curl -sS https://getcomposer.org/installer | php \
     && mkdir -p /opt/composer \
