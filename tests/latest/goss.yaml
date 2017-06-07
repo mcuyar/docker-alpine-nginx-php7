@@ -3,6 +3,8 @@ package:
     installed: true
   git:
     installed: true
+  bash:
+    installed: true
   php7:
     installed: true
   php7-ctype:

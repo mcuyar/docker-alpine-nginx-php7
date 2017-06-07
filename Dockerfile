@@ -12,7 +12,6 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     # Global Packages
     curl \
     git \
-    bash \
     # PHP Packages
     php7 \
     php7-fpm \
