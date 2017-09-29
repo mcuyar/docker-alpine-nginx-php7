@@ -51,6 +51,8 @@ package:
     installed: true
   php7-tokenizer:
     installed: true
+  php7-fileinfo:
+    installed: true
 port:
   tcp:80:
     listening: true

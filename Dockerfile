@@ -37,7 +37,8 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-zlib \
     php7-tokenizer \
     php7-simplexml \
-    php7-xmlwriter
+    php7-xmlwriter \
+    php7-fileinfo
 
 ##/
  # Install composer
