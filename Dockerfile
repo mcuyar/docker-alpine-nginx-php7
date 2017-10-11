@@ -57,7 +57,7 @@ RUN mkdir /composer \
  #/
 RUN mkdir /tmp/newrelic \
     && cd /tmp/newrelic \
-    && wget "http://download.newrelic.com/php_agent/release/$(curl http://download.newrelic.com/php_agent/release/ | grep -ohE 'newrelic-php5-.*?-linux-musl.tar.gz' | cut -f1 -d\")" -O php-agent.tar.gz \
+    && wget "https://download.newrelic.com/php_agent/release/$(curl -s https://download.newrelic.com/php_agent/release/ | grep -ohE 'newrelic-php5-.*?-linux-musl.tar.gz' | cut -f1 -d\")" -O php-agent.tar.gz \
     && gzip -dc php-agent.tar.gz | tar xf - \
     && mkdir -p /opt/newrelic \
     && cp -a "$(ls | grep 'newrelic')/." /opt/newrelic/ \
