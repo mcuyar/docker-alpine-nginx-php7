@@ -53,6 +53,8 @@ package:
     installed: true
   php7-fileinfo:
     installed: true
+  php7-ftp:
+    installed: true
 port:
   tcp:80:
     listening: true
