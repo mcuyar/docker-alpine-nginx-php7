@@ -39,7 +39,8 @@ RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge
     php7-simplexml \
     php7-xmlwriter \
     php7-fileinfo \
-    php7-ftp
+    php7-ftp \
+    php7-iconv
 
 ##/
  # Install composer

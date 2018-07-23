@@ -55,6 +55,8 @@ package:
     installed: true
   php7-ftp:
     installed: true
+  php7-iconv:
+    installed: true
 port:
   tcp:80:
     listening: true
