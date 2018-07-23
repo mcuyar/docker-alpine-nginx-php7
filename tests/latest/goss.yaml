@@ -57,6 +57,8 @@ package:
     installed: true
   php7-iconv:
     installed: true
+  php7-xmlreader:
+    installed: true
 port:
   tcp:80:
     listening: true
