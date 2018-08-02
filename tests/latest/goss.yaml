@@ -48,7 +48,7 @@ package:
   php7-zip:
     installed: true
   php7-zlib:
-    installed: true
+    installed: false
   php7-tokenizer:
     installed: true
   php7-fileinfo:

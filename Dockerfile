@@ -8,7 +8,7 @@ MAINTAINER Matthew Cuyar <matt@enctypeapparel.com>
 ##/
  # Install PHP
  #/
-RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
+RUN apk --no-cache --update --repository=http://dl-4.alpinelinux.org/alpine/v3.7/main add \
     # Global Packages
     curl \
     git \
